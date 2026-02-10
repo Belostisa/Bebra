@@ -476,18 +476,6 @@ body{
   opacity:1;
 }
 
-#ghostCanvas{
-  width:min(80vw,520px);
-  height:min(80vw,520px);
-
-  /* helps confirm you can SEE the canvas */
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(124,255,107,0.25);
-  box-shadow: 0 0 26px rgba(255,255,255,0.08);
-
-  animation: ghostPop .15s ease-out forwards;
-}
-
 @keyframes ghostPop{
   from{ transform:scale(.88); }
   to{ transform:scale(1); }
@@ -577,6 +565,7 @@ body{
   }
   .envelope{ width:260px; height:170px; }
 }
+
 
 
 
