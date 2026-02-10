@@ -282,7 +282,7 @@ function renderPage(){ typewriterPage(currentPage); }
 
 const PASSCODE = "081225";
 
-let inboxUnlocked = localStorage.getItem("inboxUnlocked") === "1";
+inboxUnlocked = sessionStorage.getItem("inboxUnlocked") === "1";
 
 // ✅ wrong-try counter (resets after success, and can reset when opening window too)
 let passFails = 0;
@@ -294,7 +294,6 @@ const failMessages = [
 ];
 
 function openEmail(){
-  // show password modal first (not inbox)
   const env = document.querySelector(".envelope");
   env.classList.add("open");
 
@@ -304,9 +303,18 @@ function openEmail(){
 
   setTimeout(() => {
     openEmail._pending = false;
-    openPass();
+
+    // ✅ if already unlocked, skip password screen
+    let inboxUnlocked = sessionStorage.getItem("inboxUnlocked") === "1";
+    if (inboxUnlocked) {
+      document.getElementById("emailOverlay").style.display = "flex";
+      renderPage();
+    } else {
+      openPass();
+    }
   }, DURATION_MS + 60);
 }
+
 
 function openPass(){
   const passOverlay = document.getElementById("passOverlay");
@@ -357,7 +365,7 @@ function submitPass(){
 
   // ✅ correct
   inboxUnlocked = true;
-  localStorage.setItem("inboxUnlocked", "1");
+  sessionStorage.setItem("inboxUnlocked", "1");
 
   passFails = 0;            // reset counter on success
   err.textContent = "";
@@ -979,6 +987,8 @@ document.addEventListener("visibilitychange", () => {
 
 </body>
 </html>
+
+
 
 
 
