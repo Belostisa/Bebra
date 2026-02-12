@@ -306,30 +306,23 @@ body{
   text-shadow: 0 0 10px rgba(124,255,107,0.18);
 }
 
-.password-box input{
-  outline: none !important;
-  box-shadow: none !important;
-
-  border: 1px solid rgba(120,255,255,0.35);
-  background: rgba(0,0,0,0.65);
-
-  color: #9aff7a;
-
-  -webkit-appearance: none;
-  appearance: none;
+.pass-input{
+  width: 100%;
+  padding: 12px 12px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(124, 255, 107, 0.55);
+  color: #9AFF7A;
+  font-family: inherit;
+  font-size: 16px;
+  outline: none;
+  box-shadow: inset 0 0 10px rgba(124,255,107,0.10);
 }
 
-.password-box input:focus,
-.password-box input:focus-visible{
-  outline: none !important;
-  box-shadow: none !important;
-  border-color: rgba(120,255,255,0.6);
-}
-
-/* Chrome autofill fix */
-.password-box input:-webkit-autofill{
-  -webkit-box-shadow: 0 0 0px 1000px rgba(0,0,0,0.85) inset !important;
-  -webkit-text-fill-color: #9aff7a !important;
+.pass-input:focus{
+  border-color: rgba(154, 255, 122, 0.9);
+  box-shadow:
+    inset 0 0 10px rgba(124,255,107,0.12),
+    0 0 14px rgba(124,255,107,0.12);
 }
 
 .pass-error{
@@ -572,6 +565,8 @@ background: radial-gradient(circle at center,
   }
   .envelope{ width:260px; height:170px; }
 }
+
+
 
 
 
